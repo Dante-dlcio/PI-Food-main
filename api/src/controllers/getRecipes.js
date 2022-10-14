@@ -3,7 +3,7 @@ const axios = require('axios')
 const db = require('../db');
 const Recipe = require("../models/Recipe");
 const { API_KEY } = process.env;
-const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=1`
+const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
 
 //TODO I'll need to take all the info I need from the API...
 
@@ -44,7 +44,7 @@ const dbInfo = async () => {
 
 //TODO - join or concat All info in one function
 
-const recipes = async()=>{
+const recipes = async () => {
     const apiRecipes = await apiInfo()
     const dbRecipes = await dbInfo()
     const allRecipes = apiRecipes.concat(dbRecipes);
@@ -53,22 +53,23 @@ const recipes = async()=>{
 
 // TODO - get the data by name (req query)
 
-const recipesByName = async (req, res)=>{
+const recipesByName = async (req, res) => {
     let name = req.query.name;
+    console.log(name)
     let recipe = await recipes()
+    console.log(recipe)
     try {
-        if(name){
-            let getName = recipe.filter((r)=> r.name.toLowerCase().includes(name.toLowerCase()))
+        if (name) {
+            let getName = recipe.filter((r) => r.name.toLowerCase().includes(name.toLowerCase()))
             res.status(200).send(getName)
-        }else {
-            res.status(404).send('no recipe found with that name')
+        } else {
+            res.status(200).send(recipe)
         }
-        
     } catch (error) {
-        console.log(error)
+        res.status(404).send('no recipe found with that name',error)
     }
 }
 
 
 
-module.exports = {recipes,recipesByName}
+module.exports = { recipes, recipesByName }
