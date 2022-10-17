@@ -12,22 +12,28 @@ module.exports = (sequelize) => {
     },
 
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
 
-    Summary: {
-      type: DataTypes.STRING,
+    summary: {
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
 
-    HealthScore: {
-      type: DataTypes.INTEGER,
+    healthScore: {
+      type: DataTypes.INTEGER(0,100),
       allowNull: false,
     },
     stepByStep: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1800),
       allowNull: false,
     },
+    created:{
+      type: DataTypes.BOOLEAN,
+    }
+  },
+  {
+    timestamps: false
   });
 };

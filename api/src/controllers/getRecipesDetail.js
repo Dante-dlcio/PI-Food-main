@@ -1,8 +1,10 @@
 require("dotenv").config();
-const axios = require('axios')
+const axios = require('axios');
+const { INTEGER } = require("sequelize");
 const db = require('../db');
 const Recipe = require("../models/Recipe");
 const { API_KEY } = process.env;
+const uuid = require('uuid')
 
 
 const recipesDetailApi = async (id) => {
@@ -21,15 +23,16 @@ const recipesDetailApi = async (id) => {
             healthScore: data.healthScore,
             stepByStep: data.analyzedInstructions.map((ss) => ss.steps.map((s) => s.step)),
         }
-        //console.log(result)
         return result
     } catch (err) {
         console.log("error getting recipes", err)
     }
 };
+// DETALLES BASE DE DATOS
 
 const recipesDetailDb = async (id) => {
-    let detailedDb = await Recipe.findAll({
+    console.log(id,"soy el id")
+    let detailedDb = await Recipe.find({
         where: {id:id},
         include:{
             model: Diet,
@@ -39,7 +42,33 @@ const recipesDetailDb = async (id) => {
             }
         }
     })
-    let result = {
-        
+    let results = {
+        id: detailedDb[0].id,
+        name:detailedDb[0].name,
+        summary:detailedDb[0].summary,
+        healthScore:detailedDb[0].healthScore,
+        stepByStep: detailedDb[0].stepByStep,
+        diets: detailedDb[0].diets.map((d)=>d.name),
+    }
+    return results
+}
+
+const detailedRecipes = async (req, res)=>{
+    try {
+        const {id} = req.params;
+        if(uuid.validate(id)){
+            console.log("estoy en el if")
+            let responseDb = await recipesDetailDb(id)
+            res.status(200).send(responseDb)
+        }else{
+            console.log("estoy en el else")
+            let responseApi = await recipesDetailApi(id)
+            console.log("traje las recetas de la API")
+            res.status(200).send(responseApi) 
+        }
+    } catch (error) {
+        res.status(404).send('no recipe available soy el mensaje del postman')
     }
 }
+
+module.exports= {detailedRecipes}

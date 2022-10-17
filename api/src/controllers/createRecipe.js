@@ -1,22 +1,33 @@
-const {Recipe,Diet} = require("../db")
+const { Recipe, Diet } = require("../db")
 
-const createRecipe = async (req,res) => {
+const createRecipe = async (req, res) => {
     try {
-        const {name, summary, healthScore, stepByStep, diet} = req.body;
+
+        const { name, summary, healthScore, stepByStep, diet, created } = req.body;
         let results = await Recipe.create({
             name,
             summary,
             healthScore,
             stepByStep,
-            diet
+            created
         });
+        diet.forEach(async (d) => {
+            let dietId = await Diet.findAll({where: { name: d }})
+            results.addDiet(dietId);
+        })
+        res.status(201).send({
+            msg: "Recipe Created",
+            results
+        });
+
     } catch (error) {
-        
-    }
-}
+        console.log(error);
+        res.status(404).send("Couldn't find diets")
+    };
+};
 
 
 
 
 
-module.exports = { createRecipe}
+module.exports = { createRecipe }

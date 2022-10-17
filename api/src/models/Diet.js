@@ -5,8 +5,13 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("diet", {
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
+    created:{
+      type: DataTypes.BOOLEAN,
+    }
+  },{
+    timestamps: false
   });
 };

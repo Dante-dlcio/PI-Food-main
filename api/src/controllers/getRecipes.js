@@ -1,9 +1,8 @@
 require("dotenv").config();
 const axios = require('axios')
-const db = require('../db');
-const Recipe = require("../models/Recipe");
+const {Diet,Recipe} = require('../db');
 const { API_KEY } = process.env;
-const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=1`
 
 //TODO I'll need to take all the info I need from the API...
 
@@ -55,9 +54,7 @@ const recipes = async () => {
 
 const recipesByName = async (req, res) => {
     let name = req.query.name;
-    console.log(name)
     let recipe = await recipes()
-    console.log(recipe)
     try {
         if (name) {
             let getName = recipe.filter((r) => r.name.toLowerCase().includes(name.toLowerCase()))
