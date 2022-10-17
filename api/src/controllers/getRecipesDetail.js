@@ -1,8 +1,7 @@
 require("dotenv").config();
 const axios = require('axios');
 const { INTEGER } = require("sequelize");
-const db = require('../db');
-const Recipe = require("../models/Recipe");
+const {Recipe,Diet} = require('../db');
 const { API_KEY } = process.env;
 const uuid = require('uuid')
 
@@ -31,44 +30,58 @@ const recipesDetailApi = async (id) => {
 // DETALLES BASE DE DATOS
 
 const recipesDetailDb = async (id) => {
-    console.log(id,"soy el id")
-    let detailedDb = await Recipe.find({
-        where: {id:id},
-        include:{
-            model: Diet,
-            attributes: ["name",],
-            trough: {
-                attributes: [],
+
+    // console.log(id, "soy el id")
+    try{
+
+        let detailedDb = await Recipe.findAll({
+            where: {id:id},
+            include:{
+                model: Diet,
+                attributes: ["name",],
+                trough: {
+                    attributes: [],
+                }
             }
+        })
+        // console.log("DB ", detailedDb)
+        let results = {
+            id: detailedDb[0].id,
+            name: detailedDb[0].name,
+            summary: detailedDb[0].summary,
+            healthScore: detailedDb[0].healthScore,
+            stepByStep: detailedDb[0].stepByStep,
+            diets: detailedDb[0].diets.map((d) => d.name),
         }
-    })
-    let results = {
-        id: detailedDb[0].id,
-        name:detailedDb[0].name,
-        summary:detailedDb[0].summary,
-        healthScore:detailedDb[0].healthScore,
-        stepByStep: detailedDb[0].stepByStep,
-        diets: detailedDb[0].diets.map((d)=>d.name),
+        // console.log("Resultado ", results)
+
+        return results
+        
+    } catch (err) {
+        console.log("error getting recipes", err)
     }
-    return results
 }
 
-const detailedRecipes = async (req, res)=>{
+const detailedRecipes = async (req, res) => {
     try {
-        const {id} = req.params;
-        if(uuid.validate(id)){
+        const { id } = req.params;
+
+        if (uuid.validate(id)) {
             console.log("estoy en el if")
             let responseDb = await recipesDetailDb(id)
+            // console.log("response ", responseDb)
             res.status(200).send(responseDb)
-        }else{
+        } else {
+            const { id } = req.params;
+
             console.log("estoy en el else")
             let responseApi = await recipesDetailApi(id)
             console.log("traje las recetas de la API")
-            res.status(200).send(responseApi) 
+            res.status(200).send(responseApi)
         }
     } catch (error) {
         res.status(404).send('no recipe available soy el mensaje del postman')
     }
 }
 
-module.exports= {detailedRecipes}
+module.exports = { detailedRecipes }
