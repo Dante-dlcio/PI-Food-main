@@ -3,18 +3,18 @@ import axios from "axios"
 //Action creators for routes:
 
 
-export function getRecipes(){
-    return async (dispatch) => { 
+export function getRecipes() {
+    return async (dispatch) => {
         let json = await axios.get("http://localhost:3001/recipes")
         return dispatch({
             type: "GET_RECIPES",
             payload: json.data,
         });
-     };
+    };
 }
 
-export function getDiets(){
-    return async (dispatch)=>{
+export function getDiets() {
+    return async (dispatch) => {
         let json = await axios.get("http://localhost:3001/diets")
         return dispatch({
             type: "GET_DIETS",
@@ -23,11 +23,21 @@ export function getDiets(){
     };
 }
 
-export function getRecipeById(id){
-    return async (dispatch)=>{
+export function getRecipeById(id) {
+    return async (dispatch) => {
         let json = await axios.get(`http://localhost:3001/recipes/${id}`)
         return dispatch({
-            type:"GET_RECIPES_BY_ID",
+            type: "GET_RECIPES_BY_ID",
+            payload: json.data,
+        });
+    };
+}
+
+export function getRecipeByName(name) {
+    return async (dispatch) => {
+        let json = await axios.get(`http://localhost:3001/recipes?name=${name}`)
+        return dispatch({
+            type: "GET_RECIPES_BY_NAME",
             payload: json.data,
         });
     };
