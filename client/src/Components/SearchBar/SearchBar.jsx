@@ -32,6 +32,7 @@ export default function SearchBar(){
             <input
             type = 'text'
             placeholder='enter your meal'
+            onKeyDown={handleKeyDown}
             onChange={(e)=>handleChange(e)}>
             </input>
             <button type='submit' onClick={(e) => handleSubmit(e)}>

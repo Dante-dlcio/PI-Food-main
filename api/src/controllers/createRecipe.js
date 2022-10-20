@@ -3,7 +3,7 @@ const { Recipe, Diet } = require("../db")
 const createRecipe = async (req, res) => {
     try {
 
-        const { name, summary, healthScore, stepByStep, diet, created } = req.body;
+        const { name, summary, healthScore, stepByStep, diets, created } = req.body;
         let results = await Recipe.create({
             name,
             summary,
@@ -11,7 +11,7 @@ const createRecipe = async (req, res) => {
             stepByStep,
             created
         });
-        diet.forEach(async (d) => {
+        diets.forEach(async (d) => {
             let dietId = await Diet.findAll({where:{name: d}})  
             results.addDiet(dietId);
         })

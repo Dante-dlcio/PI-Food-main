@@ -14,7 +14,10 @@ const apiInfo = async () => {
             id: e.id,
             image: e.image,
             name: e.title,
-            diet: e.diets
+            diets: e.diets.map((d) => ({
+                name: d
+            })),
+            
         }))
         return recipes
     } catch (err) {
