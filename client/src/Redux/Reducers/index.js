@@ -2,6 +2,9 @@ const initialState = {
     recipes: [],
     recipe: {},
     diets: [],
+    filters: {
+        byDiet: ""
+    }
 }
 
 
@@ -29,6 +32,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 recipes: action.payload
+            }
+
+        case "FILTER_BY_DIET":
+            return {
+                ...state,
+                filters: { ...state.filters, byDiet: action.payload }
             }
 
         default:

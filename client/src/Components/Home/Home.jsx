@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { getRecipes } from "../../Redux/Actions"
 import Card from "../Card/Card"
 import NavBar from "../NavBar/NavBar";
-import SearchBar from "../SearchBar/SearchBar";
+
 
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
     }, [dispatch]);
     return (
         <>
-        <div><NavBar/></div>
+            <div><NavBar /></div>
             {recipes?.map((r) => {
                 return (
                     <Card

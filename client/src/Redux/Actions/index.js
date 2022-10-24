@@ -12,6 +12,19 @@ export function getRecipes() {
         });
     };
 }
+//! Promisified filter
+// export function getRecipes() {
+//     return async (dispatch) => {
+//         await axios.get("http://localhost:3001/recipes")
+//             .then((r) => r.json())
+//             .then((json) => {
+//                 return dispatch({
+//                     type: "GET_RECIPES",
+//                     payload: json.data,
+//                 })
+//             })
+//     }
+// }
 
 export function getDiets() {
     return async (dispatch) => {
@@ -43,17 +56,20 @@ export function getRecipeByName(name) {
     };
 }
 
+export function postRecipe(payload) {
+    return async function () {
+        let json = await axios.post("http://localhost:3001/recipes/createRecipe", payload)
+        return json;
+    }
+}
+
+export function setDietFilter(filter) {
+    return async (dispatch) => {
+        return dispatch({
+            type: "FILTER_BY_DIET",
+            payload: filter,
+        })
+    }
+}
 
 
-// export function getRecipes() {
-//     return async (dispatch) => {
-//         await axios.get("http://localhost:3001/recipes")
-//             .then((r) => r.json())
-//             .then((json) => {
-//                 return dispatch({
-//                     type: "GET_RECIPES",
-//                     payload: json.data,
-//                 })
-//             })
-//     }
-// }
