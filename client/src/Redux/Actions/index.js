@@ -73,3 +73,37 @@ export function setDietFilter(filter) {
 }
 
 
+export function setOrders(orders) {
+    return async (dispatch) => {
+        return dispatch({
+            type: "SET_ORDERS",
+            payload: orders
+        })
+    }
+}
+
+export function setPage(page) {
+    return async function (dispatch) {
+        return dispatch({
+            type: "SET_PAGE",
+            payload: page
+        })
+    }
+}
+
+export function previousPage() {
+    return async function (dispatch) {
+        return dispatch({
+            type: "PREVIOUS_PAGE",
+        });
+    };
+}
+
+export function nextPage() {
+    return async function (dispatch) {
+        return dispatch({
+            type: "NEXT_PAGE",
+
+        });
+    };
+}

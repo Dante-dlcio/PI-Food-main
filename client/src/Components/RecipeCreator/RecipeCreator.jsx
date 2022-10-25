@@ -170,7 +170,7 @@ export default function RecipeCreator() {
                 </div>
                 <div>
                     <label htmlFor="diets"> Select compatible diets </label>
-                    <select onChange={(e) => handleSelectD(e)} name="diets">
+                    <select multiple onChange={(e) => handleSelectD(e)} name="diets">
                         <option key='' value='' name=''>
                             -
                         </option>

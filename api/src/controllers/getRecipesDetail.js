@@ -1,7 +1,7 @@
 require("dotenv").config();
 const axios = require('axios');
 const { INTEGER } = require("sequelize");
-const {Recipe,Diet} = require('../db');
+const { Recipe, Diet } = require('../db');
 const { API_KEY } = process.env;
 const uuid = require('uuid')
 
@@ -32,11 +32,11 @@ const recipesDetailApi = async (id) => {
 const recipesDetailDb = async (id) => {
 
     // console.log(id, "soy el id")
-    try{
+    try {
 
         let detailedDb = await Recipe.findAll({
-            where: {id:id},
-            include:{
+            where: { id: id },
+            include: {
                 model: Diet,
                 attributes: ["name",],
                 trough: {
@@ -56,7 +56,7 @@ const recipesDetailDb = async (id) => {
         // console.log("Resultado ", results)
 
         return results
-        
+
     } catch (err) {
         console.log("error getting recipes", err)
     }

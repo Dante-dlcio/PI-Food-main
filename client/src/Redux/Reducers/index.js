@@ -4,7 +4,10 @@ const initialState = {
     diets: [],
     filters: {
         byDiet: ""
-    }
+    },
+    orders: 0,
+    page: 0,
+    recipesPerPage: 9
 }
 
 
@@ -39,6 +42,28 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 filters: { ...state.filters, byDiet: action.payload }
             }
+
+        case "SET_ORDERS":
+            return {
+                ...state,
+                orders: action.payload,
+            }
+        case "SET_PAGE":
+            return {
+                ...state,
+                page: action.payload,
+            }
+        case "NEXT_PAGE":
+            return {
+                ...state,
+                page: action.payload + 1
+            }
+        case "PREVIOUS_PAGE":
+            return {
+                ...state,
+                page: action.payload - 1
+            }
+
 
         default:
             return state;

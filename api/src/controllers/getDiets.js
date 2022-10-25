@@ -25,10 +25,6 @@ const DietsFromApi = async () => {
 }
 
 
-
-//const diets = ["Gluten Free", "Dairy Free", "Ketogenic", "Vegetarian", "Lacto Ovo Vegetarian", "Vegan", "Pescatarian", "Paleolithic", "Primal", "Low FODMAP", "Whole 30", "fodmap friendly"]
-
-
 const getDiets = async (req, res) => {
     try {
         let resp = await Diet.findAll();
