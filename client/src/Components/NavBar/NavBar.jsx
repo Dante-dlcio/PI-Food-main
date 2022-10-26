@@ -7,7 +7,7 @@ import SearchBar from '../SearchBar/SearchBar'
 
 export default function NavBar() {
   const dispatch = useDispatch()
-  const { diets, filters, orders } = useSelector((state) => state)
+  const { diets, filterByDiet, orders } = useSelector((state) => state)
 
   useEffect(() => {
     dispatch(getRecipes())
@@ -17,7 +17,8 @@ export default function NavBar() {
   }, [dispatch]);
 
   function handleDietOnChange(e) {
-    dispatch(setDietFilter(e.target.options[e.target.option.selectedIndex].value))
+    console.log(e.target.value)
+    dispatch(setDietFilter(e.target.value))
   }
 
   function handleOrdersOnChange(e) {
@@ -38,8 +39,8 @@ export default function NavBar() {
           <option value='3'>Health Score ↓</option>
 
         </select>
-        <select defaultValue={filters.byDiet} onChange={handleDietOnChange}>
-          <option value=''>
+        <select defaultValue={filterByDiet} onChange={handleDietOnChange}>
+          <option>
             Diets
           </option>
           {

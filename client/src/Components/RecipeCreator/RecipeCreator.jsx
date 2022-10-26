@@ -14,7 +14,7 @@ const validate = {
         message: "This input cannot be empty, please tell us about your recipe"
     },
     healthScore: {
-        condition: (healthScore) => healthScore && healthScore > 0 && healthScore >= 100,
+        condition: (healthScore) => healthScore && healthScore > 0 && healthScore <= 100,
         message: "Please insert a number from 1 to 100",
     },
     stepByStep: {
@@ -45,6 +45,21 @@ export default function RecipeCreator() {
         diets: []
     });
 
+    function handleNameOnChange(value) {
+        let isValid = validate["name"].condition;
+        let message = validate["name"].message;
+        setInput({
+            ...input,
+            name: value,
+        });
+
+        setErrors({
+            ...errors,
+            name: isValid(value) ? "" : message,
+        });
+        console.log(errors);
+    }
+
     function handleOnChange(e) {
         let field = e.target.name;
         let value = e.target.value;
@@ -65,6 +80,9 @@ export default function RecipeCreator() {
     function handleSelectD(e) {
         let field = e.target.name;
         let value = e.target.value;
+        console.log(value)
+        if (!value) return
+        if (input.diets.some((d) => d === value)) return
         let isValid = validate[field].condition;
         let message = validate[field].message;
         setInput({
@@ -77,7 +95,8 @@ export default function RecipeCreator() {
         });
     }
 
-    function handleDeleteD(diet) {
+    function handleDeleteD(e, diet) {
+        e.preventDefault();
         setInput({
             ...input,
             diets: input.diets.filter((d) => d !== diet),
@@ -94,9 +113,6 @@ export default function RecipeCreator() {
             validate.diets.condition(input.diets)
         ) {
             dispatch(postRecipe(input));
-
-            //TODO - try and change the alert message
-            //TODO - check the problem while adding the empty diet choice and repeated diets
 
 
             alert(
@@ -127,7 +143,7 @@ export default function RecipeCreator() {
                         value={input.name}
                         key="name"
                         name="name"
-                        onChange={(e) => handleOnChange(e)}
+                        onChange={(e) => handleNameOnChange(e.target.value)}
 
                     />
                     {errors.name && <p>{errors.name}</p>}
@@ -170,7 +186,7 @@ export default function RecipeCreator() {
                 </div>
                 <div>
                     <label htmlFor="diets"> Select compatible diets </label>
-                    <select multiple onChange={(e) => handleSelectD(e)} name="diets">
+                    <select onChange={(e) => handleSelectD(e)} name="diets">
                         <option key='' value='' name=''>
                             -
                         </option>
@@ -186,7 +202,7 @@ export default function RecipeCreator() {
                     {input.diets.map((diet) => (
                         <div key={diet}>
                             <p>{diet}</p>
-                            <button diet="button" onClick={() => handleDeleteD(diet)}>
+                            <button diet="button" onClick={(e) => handleDeleteD(e, diet)}>
                                 X
                             </button>
                         </div>

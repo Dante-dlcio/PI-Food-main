@@ -1,10 +1,9 @@
 const initialState = {
+    allRecipes: [],
     recipes: [],
     recipe: {},
     diets: [],
-    filters: {
-        byDiet: ""
-    },
+    filterByDiet: "",
     orders: 0,
     page: 0,
     recipesPerPage: 9
@@ -17,6 +16,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 recipes: action.payload,
+                allRecipes: action.payload
             }
 
         case "GET_DIETS":
@@ -38,14 +38,25 @@ export default function reducer(state = initialState, action) {
             }
 
         case "FILTER_BY_DIET":
+            const recipes = [...state.allRecipes];
+            let filteredDiets = action.payload === 'Diets' ? recipes : recipes.filter(item => {
+                if (item.diets) {
+                    let itemR = item.diets.find(e => e.name === action.payload);
+                    if (itemR) return itemR
+                }
+                return false
+            })
+
             return {
                 ...state,
-                filters: { ...state.filters, byDiet: action.payload }
+                page: 0,
+                recipes: filteredDiets
             }
 
         case "SET_ORDERS":
             return {
                 ...state,
+                page: 0,
                 orders: action.payload,
             }
         case "SET_PAGE":
@@ -56,12 +67,12 @@ export default function reducer(state = initialState, action) {
         case "NEXT_PAGE":
             return {
                 ...state,
-                page: action.payload + 1
+                page: state.page + 1
             }
         case "PREVIOUS_PAGE":
             return {
                 ...state,
-                page: action.payload - 1
+                page: state.page - 1
             }
 
 

@@ -20,14 +20,15 @@ const orderBy = [alphabetical, alphabeticalInverse, healthScoreAsc, healthScoreD
 
 export default function Home() {
     const dispatch = useDispatch();
-    const { recipes, filters, orders, recipesPerPage, page } = useSelector(state => state)
-    const dietsFilter = recipe => recipe.diets?.some(d => d.name === filters.byDiet || !filters.byDiet)
-    const pagination = (_, i) => recipesPerPage * page >= i && i < recipesPerPage * (page + 1)
+    const { recipes, filterByDiet, orders, recipesPerPage, page } = useSelector(state => state)
+    const dietsFilter = recipe => recipe.diets?.some(d => d.name === filterByDiet || !filterByDiet)
+    const pagination = (_, i) => recipesPerPage * page <= i && i < recipesPerPage * (page + 1)
+    // la barra baja es para poder agregar un parametro que no voy  a usar y la i el indice de la lista
 
     useEffect(() => {
         dispatch(getRecipes());
     }, [dispatch]);
-    const filtersAndOrders = recipes?.sort(orderBy[orders])
+    const filteredAndOrderedRecipes = recipes?.sort(orderBy[orders])
         .filter(dietsFilter)
     return (
         <>
@@ -36,8 +37,8 @@ export default function Home() {
                 <NavBar />
                 <div>
 
-                    {filtersAndOrders &&
-                        filtersAndOrders.filter(pagination).map((r) => {
+                    {filteredAndOrderedRecipes &&
+                        filteredAndOrderedRecipes.filter(pagination).map((r) => {
                             return (
                                 <Card
                                     key={r.id}
@@ -51,7 +52,7 @@ export default function Home() {
                 </div>
                 {!recipes.length && <h2> No recipe found, go and make it</h2>}
 
-                <Pagination filtered={filtersAndOrders} />
+                <Pagination filtered={filteredAndOrderedRecipes} />
             </div>
         </>
     )
