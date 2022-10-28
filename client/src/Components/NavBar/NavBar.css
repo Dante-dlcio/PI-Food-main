@@ -1,0 +1,34 @@
+.container-gf {
+    background-color: rgba(red, green, blue, alpha);
+    height: 87px;
+    width: 100%;
+}
+
+.container-nav-father {
+    display: flex;
+    justify-content: space-around;
+}
+.beTheChefButton {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica, "sans-serif";
+    transition: all 0.2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: burlywood;
+    border: 1px solid transparent;
+
+    font-size: 15px;
+}
+
+button:hover {
+    background: #baaa15;
+}
+
+button:hover svg {
+    transform: translateX(5px);
+}
+
+button:active {
+    transform: scale(0.95);
+}

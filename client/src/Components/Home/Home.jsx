@@ -4,6 +4,7 @@ import { getRecipes } from "../../Redux/Actions"
 import Card from "../Card/Card"
 import NavBar from "../NavBar/NavBar";
 import { Pagination } from "../Pagination/Pagination";
+import "./Home.css"
 
 
 const alphabetical = (a, b) => {
@@ -23,7 +24,6 @@ export default function Home() {
     const { recipes, filterByDiet, orders, recipesPerPage, page } = useSelector(state => state)
     const dietsFilter = recipe => recipe.diets?.some(d => d.name === filterByDiet || !filterByDiet)
     const pagination = (_, i) => recipesPerPage * page <= i && i < recipesPerPage * (page + 1)
-    // la barra baja es para poder agregar un parametro que no voy  a usar y la i el indice de la lista
 
     useEffect(() => {
         dispatch(getRecipes());
@@ -33,9 +33,9 @@ export default function Home() {
     return (
         <>
 
-            <div>
+            <div className="home-background">
                 <NavBar />
-                <div>
+                <div className="grid-container">
 
                     {filteredAndOrderedRecipes &&
                         filteredAndOrderedRecipes.filter(pagination).map((r) => {

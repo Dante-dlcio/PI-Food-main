@@ -1,0 +1,62 @@
+.background {
+    background-image: url(../../resources/Landing.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+}
+.container-h1 {
+    color: rgb(190, 125, 40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px;
+}
+@font-face {
+    font-family: "Milkshake";
+    src: url("../../resources/font/Milkshake.ttf");
+}
+.welcome {
+    font-family: "Milkshake";
+    src: url("../../resources/font/Milkshake.ttf");
+    font-size: 4rem;
+}
+
+.container-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6rem;
+}
+.Button-Home {
+    background-color: burlywood;
+    position: relative;
+    padding: 10px 40px;
+    margin: 0px 8px 8px 0px;
+    float: left;
+    border-radius: 2rem;
+    font-family: "Milkshake";
+    src: url("../../resources/font/Milkshake.ttf");
+    font-size: 3rem;
+    border-bottom: 5px solid rgb(225, 156, 66);
+    text-shadow: 0px -2px #5e4b1b;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+}
+.button:hover,
+.button:active {
+    -webkit-transform: translate(0px, 5px);
+    -ms-transform: translate(0px, 5px);
+    transform: translate(0px, 5px);
+    border-bottom: 1px solid #5e6994;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: rgb(11, 10, 10);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1rem;
+    top: 1000px;
+}

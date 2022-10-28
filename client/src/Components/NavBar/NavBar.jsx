@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getDiets, getRecipes, setDietFilter, setOrders } from '../../Redux/Actions'
 import SearchBar from '../SearchBar/SearchBar'
+import "./NavBar.css"
 
 
 export default function NavBar() {
@@ -28,34 +29,38 @@ export default function NavBar() {
 
   return (
     <>
-      <div>
-        <SearchBar />
-      </div>
-      <div>
-        <select value={orders} onChange={handleOrdersOnChange}>
-          <option value='0'>A-Z</option>
-          <option value='1'>Z-A</option>
-          <option value='2'>Health Score ↑ </option>
-          <option value='3'>Health Score ↓</option>
+      <div className='container-gf'>
+        <div >
+          <SearchBar />
+        </div>
+        <div className='container-nav-father'>
+          <div>
+            <select value={orders} onChange={handleOrdersOnChange}>
+              <option value='0'>A-Z</option>
+              <option value='1'>Z-A</option>
+              <option value='2'>Health Score ↑ </option>
+              <option value='3'>Health Score ↓</option>
 
-        </select>
-        <select defaultValue={filterByDiet} onChange={handleDietOnChange}>
-          <option>
-            Diets
-          </option>
-          {
-            diets?.map(d => (
-              <option value={d.name}>
-                {d.name}
+            </select>
+            <select defaultValue={filterByDiet} onChange={handleDietOnChange}>
+              <option>
+                Diets
               </option>
-            ))
-          }
-        </select>
-        <Link to="/create">
-          <button>
-            Be the Chef!
-          </button>
-        </Link>
+              {
+                diets?.map(d => (
+                  <option value={d.name}>
+                    {d.name}
+                  </option>
+                ))
+              }
+            </select>
+            <Link to="/create">
+              <button className='beTheChefButton'>
+                Be the Chef!
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   )
