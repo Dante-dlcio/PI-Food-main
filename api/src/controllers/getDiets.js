@@ -3,16 +3,16 @@ const axios = require('axios')
 const { Diet } = require("../db");
 const { API_KEY } = process.env;
 
-const ENDPOINT = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+const ENDPOINT = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=30`
 
 const DietsFromApi = async () => {
-    const recipes = await axios.get(ENDPOINT)
-    let diets = recipes.data.results.map((e) => ({
-        diets: e.diets,
-    }))
-    diets = diets.map((d) => d.diets).flat()
-    diets = diets.filter((item, index) => diets.indexOf(item) === index)
     try {
+        const recipes = await axios.get(ENDPOINT)
+        let diets = recipes.data.results.map((e) => ({
+            diets: e.diets,
+        }))
+        diets = diets.map((d) => d.diets).flat()
+        diets = diets.filter((item, index) => diets.indexOf(item) === index)
         let dbDiets = diets.map((e) => ({
 
             name: e.toLowerCase()

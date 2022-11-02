@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getRecipeByName, getRecipes } from '../../Redux/Actions';
+import "./SearchBar.css"
 
 
 export default function SearchBar() {
@@ -29,13 +30,13 @@ export default function SearchBar() {
     }
     return (
         <>
-            <input className='inputCss'
+            <input className='input-css'
                 type='text'
-                placeholder='enter your meal'
+                placeholder='Enter your meal'
                 onKeyDown={handleKeyDown}
                 onChange={(e) => handleChange(e)}>
             </input>
-            <button type='submit' onClick={(e) => handleSubmit(e)}>
+            <button className='btn' type='submit' onClick={(e) => handleSubmit(e)}>
                 Search
             </button>
         </>

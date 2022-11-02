@@ -1,6 +1,63 @@
-h1,
-h2 {
-    color: rgb(22, 15, 42);
-    text-decoration: none;
-    margin-top: 20px;
+.card {
+    width: 270px;
+    height: 25 rem;
+    font-size: smaller;
+    background-color: #f8f8f8;
+    border-color: rgb(220, 169, 39);
+    transition: all 0.5s;
+    border-radius: 3rem;
+    border-style: solid;
+    padding: 15px;
+    margin: 35px;
+    -webkit-box-shadow: 28px 26px 20px -11px rgba(17, 14, 9, 0.698);
+    -moz-box-shadow: 28px 26px 20px -11px rgba(0, 0, 0, 0.44);
+    box-shadow: 28px 26px 20px -11px rgba(0, 0, 0, 0.44);
+}
+.card:hover {
+    border: 1px solid rgb(220, 169, 39);
+    transform: scale(1.05);
+}
+
+.image {
+    width: 16rem;
+    height: 12rem;
+    border-radius: 2rem;
+}
+.name-container {
+    width: 18rem;
+    height: 1.5rem;
+    padding-bottom: 7rem;
+}
+
+@font-face {
+    font-family: "QumpellkaNo12";
+    src: url("../../resources/font/QumpellkaNo12.otf");
+}
+.recipes-name {
+    color: rgb(190, 125, 40);
+    font-family: "QumpellkaNo12";
+    src: url("../../resources/font/QumpellkaNo12.otf");
+    font-size: 1.8em;
+}
+
+.c-diets-card {
+    font-family: "QumpellkaNo12";
+    font-size: 1rem;
+    color: brown;
+}
+.diets-card {
+    width: 20rem;
+    font-family: "QumpellkaNo12";
+    font-size: 1rem;
+    color: rgba(200, 99, 11, 0.992);
+}
+.linked-ct {
+    display: flex;
+    justify-content: end;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.link-details {
+    font-style: italic;
+    font-family: "QumpellkaNo12";
 }

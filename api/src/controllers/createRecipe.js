@@ -12,7 +12,7 @@ const createRecipe = async (req, res) => {
             created
         });
         diets.forEach(async (d) => {
-            let dietId = await Diet.findAll({where:{name: d}})  
+            let dietId = await Diet.findAll({ where: { name: d } })
             results.addDiet(dietId);
         })
         res.status(201).send({

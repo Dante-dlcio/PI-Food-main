@@ -12,19 +12,6 @@ export function getRecipes() {
         });
     };
 }
-//! Promisified filter
-// export function getRecipes() {
-//     return async (dispatch) => {
-//         await axios.get("http://localhost:3001/recipes")
-//             .then((r) => r.json())
-//             .then((json) => {
-//                 return dispatch({
-//                     type: "GET_RECIPES",
-//                     payload: json.data,
-//                 })
-//             })
-//     }
-// }
 
 export function getDiets() {
     return async (dispatch) => {
