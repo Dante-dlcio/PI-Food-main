@@ -1,11 +1,29 @@
 .container-gf {
-    display: block;
+    box-sizing: content-box;
+    background-color: transparent;
+    height: 87px;
+    width: 100%;
+}
+.container-sb {
+    display: flex;
+    justify-content: flex-start;
+    margin-block-start: auto;
 }
 
 .container-nav-father {
     display: flex;
     justify-content: space-around;
 }
+
+.select-o-f {
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
+    transition: 0.3s;
+}
+
 .beTheChefButton {
     cursor: pointer;
     font-weight: 700;

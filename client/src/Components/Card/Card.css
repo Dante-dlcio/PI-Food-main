@@ -1,5 +1,5 @@
 .card {
-    width: 270px;
+    width: 22rem;
     height: 25 rem;
     font-size: smaller;
     background-color: #f8f8f8;
@@ -19,31 +19,40 @@
 }
 
 .image {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
     width: 16rem;
     height: 12rem;
     border-radius: 2rem;
 }
 .name-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 18rem;
     height: 1.5rem;
     padding-bottom: 7rem;
 }
 
 @font-face {
+    font-family: "Milkshake";
+    src: url("../../resources/font/Milkshake.ttf");
     font-family: "QumpellkaNo12";
     src: url("../../resources/font/QumpellkaNo12.otf");
 }
 .recipes-name {
-    color: rgb(190, 125, 40);
-    font-family: "QumpellkaNo12";
+    color: rgb(30, 168, 128);
+    font-family: "Milkshake";
     src: url("../../resources/font/QumpellkaNo12.otf");
-    font-size: 1.8em;
+    font-size: 1.8rem;
 }
 
 .c-diets-card {
+    margin-bottom: 2rem;
     font-family: "QumpellkaNo12";
     font-size: 1rem;
-    color: brown;
+    color: rgb(30, 169, 193);
 }
 .diets-card {
     width: 20rem;

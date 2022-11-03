@@ -30,19 +30,19 @@ export default function NavBar() {
   return (
     <>
       <div className='container-gf'>
-        <div >
+        <div className='container-sb' >
           <SearchBar />
         </div>
         <div className='container-nav-father'>
           <div>
-            <select value={orders} onChange={handleOrdersOnChange}>
+            <select className='select-o-f' value={orders} onChange={handleOrdersOnChange}>
               <option value='0'>A-Z</option>
               <option value='1'>Z-A</option>
               <option value='2'>Health Score ↑ </option>
               <option value='3'>Health Score ↓</option>
 
             </select>
-            <select defaultValue={filterByDiet} onChange={handleDietOnChange}>
+            <select className='select-o-f' defaultValue={filterByDiet} onChange={handleDietOnChange}>
               <option>
                 Diets
               </option>
