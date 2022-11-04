@@ -1,7 +1,7 @@
 const initialState = {
     allRecipes: [],
     recipes: [],
-    recipe: {},
+    recipe: [],
     diets: [],
     filterByDiet: "",
     orders: 0,
@@ -32,9 +32,31 @@ export default function reducer(state = initialState, action) {
             }
 
         case "GET_RECIPES_BY_NAME":
+            const error = ['No results']
+            if (action.payload == '') {
+                return {
+                    ...state,
+                    recipes: error
+                }
+            } else {
+                return {
+                    ...state,
+                    recipes: action.payload
+                }
+            }
+
+
+        case "CLEAR_STATE":
+            const emptyState = []
             return {
                 ...state,
-                recipes: action.payload
+                recipe: emptyState,
+            }
+
+        case "ERROR_HANDLER":
+
+            return {
+                ...state,
             }
 
         case "FILTER_BY_DIET":

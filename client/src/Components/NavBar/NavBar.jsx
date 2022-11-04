@@ -12,10 +12,9 @@ export default function NavBar() {
 
   useEffect(() => {
     dispatch(getRecipes())
-  }, [dispatch]);
-  useEffect(() => {
     dispatch(getDiets())
   }, [dispatch]);
+
 
   function handleDietOnChange(e) {
     console.log(e.target.value)
@@ -55,7 +54,7 @@ export default function NavBar() {
               }
             </select>
             <Link to="/create">
-              <button className='beTheChefButton'>
+              <button className='btn'>
                 Be the Chef!
               </button>
             </Link>

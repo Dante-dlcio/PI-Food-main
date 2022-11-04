@@ -30,6 +30,7 @@
 }
 .Button-Home {
     background-color: burlywood;
+    cursor: pointer;
     position: relative;
     padding: 10px 40px;
     margin: 0px 8px 8px 0px;

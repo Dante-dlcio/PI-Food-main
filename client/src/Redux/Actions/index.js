@@ -50,12 +50,19 @@ export function postRecipe(payload) {
     }
 }
 
+
 export function setDietFilter(filter) {
     return async (dispatch) => {
         return dispatch({
             type: "FILTER_BY_DIET",
             payload: filter,
         })
+    }
+}
+
+export function clearState() {
+    return {
+        type: "CLEAR_STATE"
     }
 }
 

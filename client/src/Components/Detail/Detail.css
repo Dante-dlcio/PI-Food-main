@@ -10,12 +10,6 @@
     src: url("../../resources/font/QumpellkaNo12.otf");
 }
 
-.det-name {
-    display: flex;
-    justify-content: center;
-    font-family: "Milkshake";
-    padding-bottom: 2rem;
-}
 .img-container {
     padding-bottom: 2rem;
 }
@@ -39,16 +33,14 @@
     border-radius: 5rem;
     border-color: burlywood;
 }
-.diet-det{
-    display: flex;
-    justify-content: start;
-
+.diet-det {
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-.dish-type-det{
-
+.dish-type-det {
 }
-.health-score-det{
-
+.health-score-det {
 }
 
 .detail-grid {
