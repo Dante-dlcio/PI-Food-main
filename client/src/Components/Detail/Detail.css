@@ -30,18 +30,30 @@
 
 .det-data-container {
     display: flex;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
-    width: 98rem;
+    width: 90rem;
     height: auto;
-    background-color: white;
+    background-color: ivory;
     border-radius: 5rem;
     border-color: burlywood;
+}
+.diet-det{
+    display: flex;
+    justify-content: start;
+
+}
+.dish-type-det{
+
+}
+.health-score-det{
+
 }
 
 .detail-grid {
     display: grid;
-    grid-template-rows: repeat(3, 7rem);
+    grid-template-columns: repeat(3, 7rem);
     justify-content: center;
     width: 80%;
     margin: auto auto;

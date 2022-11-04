@@ -50,7 +50,11 @@ export default function Home() {
                             )
                         })}
                 </div>
-                {!recipes.length && <h2> No recipe found, go and make it</h2>}
+                {!recipes.length && <div>
+                     No recipe found, go and make it <button>
+                        Reload
+                     </button>
+                     </div>}
 
                 <Pagination filtered={filteredAndOrderedRecipes} />
             </div>

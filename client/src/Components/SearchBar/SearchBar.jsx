@@ -14,6 +14,10 @@ export default function SearchBar() {
         setName(e.target.value)
     }
 
+    function handleOnClick(e){
+        
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
         if (name) {
@@ -22,6 +26,7 @@ export default function SearchBar() {
             dispatch(getRecipes())
         }
     }
+
 
     function handleKeyDown(e) {
         if (e.keyCode === 13) {

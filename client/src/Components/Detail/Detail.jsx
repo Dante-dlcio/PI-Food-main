@@ -11,10 +11,10 @@ export default function Detailed() {
 
     useEffect(() => {
         dispatch(getRecipeById(id));
-        return () => {
-            console.log("hola")
-        }
-    }, []);
+        // return () => {
+        //     console.log("hola")
+        // }
+    }, [dispatch]);
     return (
         <>
             <div className="details-background">
@@ -26,9 +26,9 @@ export default function Detailed() {
                         </div>
                         <div className="det-data-container">
                             <div className="detail-grid">
-                                <h3> Diets: <p>{details.diets}</p></h3>
-                                <h3>Dish type: <p>{details.dishType}</p></h3>
-                                <h3>Health Score : {details.healthScore}</h3>
+                                <h3 className="diet-det"> Diets: <p>{details.diets}</p></h3>
+                                <h3 className="dish-type-det">Dish type: <p>{details.dishType}</p></h3>
+                                <h3 className="health-score-det">Health Score : {details.healthScore}</h3>
                             </div>
                         </div>
                         <h2>Summary:<p><div dangerouslySetInnerHTML={{ __html: details?.summary }}></div></p> <div dangerouslySetInnerHTML={{ __html: details?.summary }}></div></h2>
