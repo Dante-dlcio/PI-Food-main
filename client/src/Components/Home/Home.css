@@ -1,11 +1,11 @@
 .home-background {
     background-image: url(../../resources/Home.jpg);
-    background-repeat: repeat;
-    background-size: 100%;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    height: 100%;
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
 }
 
 .grid-container {

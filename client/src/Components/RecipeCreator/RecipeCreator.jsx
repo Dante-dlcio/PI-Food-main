@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { postRecipe, getDiets } from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
-
+import "./RecipeCreator.css"
 
 const validate = {
     name: {
@@ -133,89 +133,99 @@ export default function RecipeCreator() {
 
 
     return (
-        <div>
-            <h3> Create Recipe! </h3>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
-                    <label htmlFor="name"> Name </label>
-                    <input
-                        type="text"
-                        value={input.name}
-                        key="name"
-                        name="name"
-                        onChange={(e) => handleNameOnChange(e.target.value)}
+        <div className="rc-background">
+            <div className="rc-title">
+                Create your Recipe!
+            </div>
 
-                    />
-                    {errors.name && <p>{errors.name}</p>}
-                </div>
-                <div>
-                    <label htmlFor="summary"> Summary </label>
-                    <input
-                        type="text"
-                        value={input.summary}
-                        key="summary"
-                        name="summary"
-                        onChange={(e) => handleOnChange(e)}
+            <div className="form-ctn">
+                <div className="scroll">
+                    <form onSubmit={(e) => handleSubmit(e)}>
+                        <div>
+                            <label htmlFor="name"> Name </label>
+                            <input
+                                type="text"
+                                value={input.name}
+                                key="name"
+                                name="name"
+                                onChange={(e) => handleNameOnChange(e.target.value)}
 
-                    />
-                    {errors.summary && <p>{errors.summary}</p>}
-                </div>
-                <div>
-                    <label htmlFor="healthScore"> Health Score </label>
-                    <input
-                        type="number"
-                        value={input.healthScore}
-                        key="healthScore"
-                        name="healthScore"
-                        onChange={(e) => handleOnChange(e)}
+                            />
+                            {errors.name && <p>{errors.name}</p>}
+                        </div>
+                        <div>
+                            <label htmlFor="summary"> Summary </label>
+                            <input
+                                type="text"
+                                value={input.summary}
+                                key="summary"
+                                name="summary"
+                                onChange={(e) => handleOnChange(e)}
 
-                    />
-                    {errors.healthScore && <p>{errors.healthScore}</p>}
-                </div>
-                <div>
-                    <label htmlFor="stepByStep"> Step by step </label>
-                    <input
-                        type="text"
-                        value={input.stepByStep}
-                        key="stepByStep"
-                        name="stepByStep"
-                        onChange={(e) => handleOnChange(e)}
+                            />
+                            {errors.summary && <p>{errors.summary}</p>}
+                        </div>
+                        <div>
+                            <label htmlFor="healthScore"> Health Score </label>
+                            <input
+                                type="number"
+                                value={input.healthScore}
+                                key="healthScore"
+                                name="healthScore"
+                                onChange={(e) => handleOnChange(e)}
 
-                    />
-                    {errors.stepByStep && <p>{errors.stepByStep}</p>}
-                </div>
-                <div>
-                    <label htmlFor="diets"> Select compatible diets </label>
-                    <select onChange={(e) => handleSelectD(e)} name="diets">
-                        <option key='' value='' name=''>
-                            -
-                        </option>
-                        {diets?.map((diet) => {
-                            return (
-                                <option key={diet.id} value={diet.name} name={diet.name}>
-                                    {diet.name}
+                            />
+                            {errors.healthScore && <p>{errors.healthScore}</p>}
+                        </div>
+                        <div>
+                            <label htmlFor="stepByStep"> Step by step </label>
+                            <input
+                                type="text"
+                                value={input.stepByStep}
+                                key="stepByStep"
+                                name="stepByStep"
+                                onChange={(e) => handleOnChange(e)}
+
+                            />
+                            {errors.stepByStep && <p>{errors.stepByStep}</p>}
+                        </div>
+                        <div>
+                            <label htmlFor="diets"> Select compatible diets </label>
+                            <select onChange={(e) => handleSelectD(e)} name="diets">
+                                <option key='' value='' name=''>
+                                    -
                                 </option>
-                            )
-                        })}
-                    </select>
-                    {errors.diets && <p>{errors.diets}</p>}
-                    {input.diets.map((diet) => (
-                        <div key={diet}>
-                            <p>{diet}</p>
-                            <button diet="button" onClick={(e) => handleDeleteD(e, diet)}>
-                                X
+                                {diets?.map((diet) => {
+                                    return (
+                                        <option key={diet.id} value={diet.name} name={diet.name}>
+                                            {diet.name}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                            {errors.diets && <p>{errors.diets}</p>}
+                            <div className="diets-ctn">
+                                {input.diets.map((diet) => (
+                                    <div className="diet-optn" key={diet}>
+                                        {diet}
+                                        <button diet="button" onClick={(e) => handleDeleteD(e, diet)}>
+                                            X
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="btn-ctn">
+                            <button className="btn" type="submit">
+                                Create your Recipe!
                             </button>
                         </div>
-                    ))}
+                    </form>
                 </div>
-
-                <button type="submit">
-                    Create your Recipe!
-                </button>
-            </form>
-            <div>
+            </div>
+            <div className="btn-ctn">
                 <Link to="/home">
-                    <button> Home </button>
+                    <button className="Button-Home"> Home </button>
                 </Link>
             </div>
         </div>

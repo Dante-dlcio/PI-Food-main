@@ -24,19 +24,6 @@
     transition: 0.3s;
 }
 
-.beTheChefButton {
-    cursor: pointer;
-    font-weight: 700;
-    font-family: Helvetica, "sans-serif";
-    transition: all 0.2s;
-    padding: 10px 20px;
-    border-radius: 100px;
-    background: burlywood;
-    border: 1px solid transparent;
-
-    font-size: 15px;
-}
-
 button:hover {
     background: #baaa15;
 }

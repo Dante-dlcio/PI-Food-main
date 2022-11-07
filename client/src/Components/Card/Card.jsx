@@ -15,7 +15,7 @@ export default function Card({ id, name, image, diets }) {
             <h2 className="c-diets-card">Compatible Diets:</h2>  <h2 className="diets-card">{diets?.map((d) => <p>{d.name}</p>)}</h2>
          </div>
          <div className="linked-ct">
-            <Link to={`/recipes/${id}`}>
+            <Link className="link" to={`/recipes/${id}`}>
                <p className="link-details">
                   Learn More!
                </p>

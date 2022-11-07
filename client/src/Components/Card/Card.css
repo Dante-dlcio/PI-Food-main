@@ -2,6 +2,7 @@
     width: 22rem;
     height: 25 rem;
     font-size: smaller;
+    position: relative;
     background-color: #f8f8f8;
     border-color: rgb(220, 169, 39);
     transition: all 0.5s;
@@ -43,6 +44,7 @@
 }
 .recipes-name {
     display: block;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
     color: rgb(30, 168, 128);
@@ -52,6 +54,7 @@
 }
 
 .c-diets-card {
+    display: flex;
     margin-bottom: 2rem;
     font-family: "QumpellkaNo12";
     font-size: 1rem;
@@ -64,12 +67,15 @@
     color: rgba(200, 99, 11, 0.992);
 }
 .linked-ct {
-    display: flex;
-    justify-content: end;
-    margin-top: auto;
-    margin-bottom: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
 }
 .link-details {
     font-style: italic;
     font-family: "QumpellkaNo12";
+}
+.link {
+    text-decoration: none;
+    color: blue;
 }

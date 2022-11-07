@@ -2,8 +2,9 @@
     color: rgb(7, 130, 125);
     padding-top: 1rem;
     align-items: center;
-    position: relative;
+    justify-content: center;
     bottom: 10px;
+    width: 100%;
     z-index: 1000000;
     left: 45vw;
     display: flex;

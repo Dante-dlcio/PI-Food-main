@@ -1,0 +1,51 @@
+.rc-background {
+    background-image: url(../../resources/Form.jpg);
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+.form-ctn {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 38%;
+    left: 38%;
+    align-items: center;
+    width: 506px;
+    height: 398px;
+    border-radius: 6rem;
+    background-color: ivory;
+    border-style: solid;
+    border-color: burlywood;
+    text-align: center;
+}
+.form-ctn > .scroll {
+    overflow: auto;
+}
+.rc-title {
+    color: rgb(3, 99, 42);
+    font-family: "milkshake";
+    font-size: 4.5rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 16rem;
+}
+
+.btn-ctn {
+    display: flex;
+    justify-content: center;
+    padding-top: 22%;
+}
+.diets-ctn {
+}
+
+.diet-optn {
+    flex: 1 0 21%;
+}
+.diet-optn > button {
+    display: inline;
+}

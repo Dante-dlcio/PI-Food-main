@@ -1,12 +1,14 @@
 .background {
     background-image: url(../../resources/Landing.jpg);
     background-repeat: no-repeat;
+    overflow: auto;
     background-size: cover;
-    position: relative;
     height: 100vh;
+    width: 100vw;
+    position: fixed;
 }
 .container-h1 {
-    color: rgb(190, 125, 40);
+    color: rgb(9, 93, 99);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,17 +41,37 @@
     font-family: "Milkshake";
     src: url("../../resources/font/Milkshake.ttf");
     font-size: 3rem;
-    border-bottom: 5px solid rgb(225, 156, 66);
     text-shadow: 0px -2px #5e4b1b;
     -webkit-transition: all 0.1s;
     transition: all 0.1s;
 }
-.button:hover,
-.button:active {
-    -webkit-transform: translate(0px, 5px);
-    -ms-transform: translate(0px, 5px);
-    transform: translate(0px, 5px);
-    border-bottom: 1px solid #5e6994;
+
+.Button-Home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, 0.5);
+}
+
+.Button-Home:active {
+    transform: translateY(-3px);
+}
+
+.Button-Home::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+.Button-Home:hover::after {
+    background-color: rgb(160, 111, 6);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
 }
 
 .footer {
@@ -58,6 +80,6 @@
     text-align: center;
     color: rgb(11, 10, 10);
     font-family: "Times New Roman", Times, serif;
-    font-size: 1rem;
-    top: 1000px;
+    font-size: 1.5rem;
+    top: 950px;
 }

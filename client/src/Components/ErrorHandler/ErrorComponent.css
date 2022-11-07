@@ -1,0 +1,19 @@
+.error-background {
+    background-image: url(../../resources/error.jpg);
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+.msg-btn-ctn {
+    color: ivory;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px;
+    font-family: "Milkshake";
+    font-size: 4rem;
+}

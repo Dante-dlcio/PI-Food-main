@@ -1,6 +1,11 @@
 .details-background {
     background-image: url(../../resources/Details.jpg);
-    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
 }
 
 @font-face {
@@ -24,30 +29,57 @@
 
 .det-data-container {
     display: flex;
-    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     width: 90rem;
     height: auto;
     background-color: ivory;
     border-radius: 5rem;
+    border-style: solid;
     border-color: burlywood;
 }
-.diet-det {
-    display: block;
+.content-det {
+    display: flex;
+    color: rgba(200, 99, 11, 0.992);
     justify-content: flex-start;
     align-items: flex-start;
 }
-.dish-type-det {
-}
-.health-score-det {
-}
 
 .detail-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 7rem);
+    font-family: "QumpellkaNo12";
+    color: aqua;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 3;
+}
+
+.sum-sbs-ctn {
+    display: flex;
+    flex-direction: column;
+    border-radius: 13rem;
+    background-color: ivory;
+    border-style: solid;
+    border-color: burlywood;
+    text-align: center;
+}
+
+.wrapper-text-summary {
+    padding-left: 5%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 80%;
-    margin: auto auto;
-    margin-top: 30px;
+}
+
+.sum-sbs-t {
+    font-family: "QumpellkaNo12";
+    font-size: 1.3rem;
+    color: rgb(30, 169, 193);
+}
+.sum-sbs {
+    font-size: 1rem;
+    color: rgba(200, 99, 11, 0.992);
+    text-decoration: none;
 }

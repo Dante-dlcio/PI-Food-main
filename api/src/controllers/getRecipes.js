@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require('axios')
 const { Diet, Recipe } = require('../db');
 const { API_KEY } = process.env;
-const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=18`
+const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=9`
 
 //TODO I'll need to take all the info I need from the API...
 

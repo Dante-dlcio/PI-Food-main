@@ -17,7 +17,9 @@ const recipesDetailApi = async (id) => {
             image: data.image,
             name: data.title,
             diets: data.diets,
-            dishType: data.dishTypes,
+            dishType: data.dishTypes.map((dt) => ({
+                name: dt
+            })),
             summary: data.summary,
             healthScore: data.healthScore,
             stepByStep: data.analyzedInstructions.map((ss) => ss.steps.map((s) => s.step)),
