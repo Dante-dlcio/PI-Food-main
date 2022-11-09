@@ -60,6 +60,7 @@ export function setDietFilter(filter) {
     }
 }
 
+
 export function clearState() {
     return {
         type: "CLEAR_STATE"

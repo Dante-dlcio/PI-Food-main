@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getRecipeById, clearState } from "../../Redux/Actions";
+import { getRecipeById, clearState, loader } from "../../Redux/Actions";
 import { Link, useParams } from "react-router-dom";
 import "./Detail.css";
 import "../SearchBar/SearchBar.css";
+
+
 
 export default function Detailed() {
     const dispatch = useDispatch();
@@ -14,8 +16,10 @@ export default function Detailed() {
         dispatch(getRecipeById(id));
         dispatch(clearState());
     }, [dispatch]);
+
     return (
         <>
+
             <div className="details-background">
                 <div>
                     <Link to={"/home"}>
@@ -65,4 +69,5 @@ export default function Detailed() {
             </div>
         </>
     );
+
 }

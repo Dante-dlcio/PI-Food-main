@@ -33,7 +33,7 @@ export default function reducer(state = initialState, action) {
 
         case "GET_RECIPES_BY_NAME":
             const error = ['No results']
-            if (action.payload == '') {
+            if (action.payload === '') {
                 return {
                     ...state,
                     recipes: error
@@ -53,11 +53,13 @@ export default function reducer(state = initialState, action) {
                 recipe: emptyState,
             }
 
-        case "ERROR_HANDLER":
-
+        case "LOADER":
+            const loader = []
             return {
                 ...state,
+                recipe: loader
             }
+
 
         case "FILTER_BY_DIET":
             const recipes = [...state.allRecipes];
