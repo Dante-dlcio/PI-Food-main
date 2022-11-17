@@ -15,7 +15,7 @@ export default function Detailed() {
     useEffect(() => {
         dispatch(getRecipeById(id));
         dispatch(clearState());
-    }, [dispatch]);
+    }, []);
 
     return (
         <>

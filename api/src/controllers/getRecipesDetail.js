@@ -33,7 +33,7 @@ const recipesDetailApi = async (id) => {
 
 const recipesDetailDb = async (id) => {
 
-    // console.log(id, "soy el id")
+
     try {
 
         let detailedDb = await Recipe.findAll({
@@ -46,7 +46,7 @@ const recipesDetailDb = async (id) => {
                 }
             }
         })
-        // console.log("DB ", detailedDb)
+
         let results = {
             id: detailedDb[0].id,
             name: detailedDb[0].name,
@@ -55,7 +55,6 @@ const recipesDetailDb = async (id) => {
             stepByStep: detailedDb[0].stepByStep,
             diets: detailedDb[0].diets.map((d) => d.name),
         }
-        // console.log("Resultado ", results)
 
         return results
 
@@ -71,7 +70,6 @@ const detailedRecipes = async (req, res) => {
         if (uuid.validate(id)) {
             console.log("estoy en el if")
             let responseDb = await recipesDetailDb(id)
-            // console.log("response ", responseDb)
             res.status(200).send(responseDb)
         } else {
             const { id } = req.params;

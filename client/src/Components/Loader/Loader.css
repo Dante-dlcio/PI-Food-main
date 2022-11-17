@@ -1,0 +1,9 @@
+.loader-back {
+    background-image: url(../../resources/Loader.jpg);
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}

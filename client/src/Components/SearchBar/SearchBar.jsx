@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getRecipeByName } from '../../Redux/Actions';
-import "./SearchBar.css"
+//import "./SearchBar.css"
 
 
 export default function SearchBar() {
