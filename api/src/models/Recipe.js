@@ -22,18 +22,25 @@ module.exports = (sequelize) => {
     },
 
     healthScore: {
-      type: DataTypes.INTEGER(0,100),
+      type: DataTypes.INTEGER(0, 100),
       allowNull: false,
     },
     stepByStep: {
       type: DataTypes.STRING(1800),
       allowNull: false,
     },
-    created:{
+    created: {
       type: DataTypes.BOOLEAN,
     }
   },
-  {
-    timestamps: false
-  });
+    {
+      timestamps: true,
+      paranoid: true,
+      indexes: [
+        {
+          unique: true,
+          fields: ["name"],
+        }
+      ]
+    });
 };

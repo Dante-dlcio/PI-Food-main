@@ -8,10 +8,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    created:{
+    created: {
       type: DataTypes.BOOLEAN,
     }
-  },{
-    timestamps: false
+  }, {
+    timestamps: true,
+    paranoid: true,
   });
 };

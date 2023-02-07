@@ -68,7 +68,6 @@ const detailedRecipes = async (req, res) => {
         const { id } = req.params;
 
         if (uuid.validate(id)) {
-            console.log("estoy en el if")
             let responseDb = await recipesDetailDb(id)
             res.status(200).send(responseDb)
         } else {
@@ -76,7 +75,6 @@ const detailedRecipes = async (req, res) => {
 
             console.log("estoy en el else")
             let responseApi = await recipesDetailApi(id)
-            console.log("traje las recetas de la API")
             res.status(200).send(responseApi)
         }
     } catch (error) {
