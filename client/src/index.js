@@ -11,7 +11,7 @@ import axios from 'axios'
 //axios.defaults.baseURL = 'http://localhost:3001'
 
 //deployed
-axios.defaults.baseURL = foods-backend.up.railway.app
+axios.defaults.baseURL = 'foods-backend.up.railway.app'
 
 ReactDOM.render(
   <Provider store={store}>
