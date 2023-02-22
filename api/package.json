@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -L",
     "test": "mocha -w ./tests/**/*.spec.js",
-    "build":"node index.js"
+    "build":"CI=false node index.js"
   },
   "author": "Henry",
   "license": "ISC",
