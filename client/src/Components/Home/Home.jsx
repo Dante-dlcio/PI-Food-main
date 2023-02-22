@@ -42,7 +42,7 @@ export default function Home() {
     return (
         <>
             {
-                // eslint-disable-next-line eqeqeq
+                // eslint-disable-next-line
                 recipes == 'No results' ? <ErrorComponent /> :
                     <div className="home-background">
                         <NavBar />
