@@ -6,6 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store"
 
+import axios from 'axios'
+//local
+axios.defaults.baseURL = 'http://localhost:3001'
+
+//deployed
+//axios.defaults.baseURL = foods-backend.up.railway.app
+
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
