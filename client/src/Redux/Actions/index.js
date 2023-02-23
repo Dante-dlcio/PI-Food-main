@@ -5,7 +5,7 @@ import axios from "axios"
 
 export function getRecipes() {
     return async (dispatch) => {
-        let json = await axios.get("/recipes")
+        let json = await axios.get("https://foods-backend.up.railway.app/recipes")
         return dispatch({
             type: "GET_RECIPES",
             payload: json.data,
