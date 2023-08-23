@@ -47,7 +47,7 @@ export default function NavBar() {
               </option>
               {
                 diets?.map(d => (
-                  <option value={d.name}>
+                  <option key={d.name} value={d.name}>
                     {d.name}
                   </option>
                 ))

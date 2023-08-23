@@ -11,11 +11,11 @@ export function Pagination({ filtered }) {
         .map(n => n + page)
         .filter(index => index >= 0)
         .filter(n => n < filtered.length / recipesPerPage)
-        .map(x => (<div className={x == page ? "current" : ""} onClick={() => handleSetPage(x)}>{x + 1}</div>))
+        .map(x => (<div key={x} className={x == page ? "current" : ""} onClick={() => handleSetPage(x)}>{x + 1}</div>))
 
 
     return (
-        <div className="pagination-buttons">
+        <div  className="pagination-buttons">
             <div onClick={() => page > 0 ? dispatch(previousPage()) : null}>{"<"}</div>
             {pageButtons()}
             <div onClick={() => page + 1 < filtered.length / recipesPerPage ? dispatch(nextPage()) : null}>{">"}</div>
